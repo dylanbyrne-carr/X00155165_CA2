@@ -68,6 +68,30 @@ class TestHistory:
         self.roller.roll(3, 6)
         assert len(self.roller.get_history()) == 3
 
+class TestStatistics:
+    """Test statistics feature"""
+    def setup_method(self):
+        """Set up test."""
+        self.roller = DiceRoller()
+
+    def test_stats_empty(self):
+        """Test stats with no history"""
+        stats = self.roller.get_stats()
+        assert stats['average'] == 0 
+        assert stats['count'] == 0
+
+    def test_stats_with_rolls(self):
+        """Test stats calculation"""
+        self.roller.history = [1,2,3,4,5]
+        stats = self.roller.get_stats()
+        assert stats['average'] == 3.0
+        assert stats['min'] == 1
+        assert stats['max'] == 5
+        assert stats['count'] == 5
+        
+
+
+
 
 class TestIntegration:
     """Integration tests."""
