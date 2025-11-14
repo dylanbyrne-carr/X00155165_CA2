@@ -54,6 +54,8 @@ class DiceRoller:
 
 def main():
     """Demo the dice roller."""
+
+    print("Demo line")
     print("=== Dice ROller Demo P2 ===\n")
     roller = DiceRoller()
     print("FEATURE 1: Basic Rolling")
